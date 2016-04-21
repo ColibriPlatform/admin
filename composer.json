@@ -11,8 +11,7 @@
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": ">=2.0.7",
-        "bower-asset/adminlte" : ">=2.3.3",
-        "bower-asset/fontawesome" : ">=4.6.0"
+        "deesoft/yii2-adminlte": "~1.0"
     },
 
     "autoload": {
