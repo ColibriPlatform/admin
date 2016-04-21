@@ -22,7 +22,7 @@ class AdminlteAsset extends \yii\web\AssetBundle
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapPluginAsset',
-        'colibri\base\assets\FontawesomeAsset',
+        'colibri\backend\assets\FontawesomeAsset',
     ];
 
 }
