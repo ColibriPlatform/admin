@@ -1,0 +1,9 @@
+# Eclipse project files
+.buildpath
+.project
+.settings
+
+# composer vendor dir
+/vendor
+
+composer.lock

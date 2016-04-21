@@ -1,0 +1,29 @@
+{
+    "name": "ilhooq/colibri-backend",
+    "description": "The base for a modular application",
+    "keywords": ["yii2", "admin", "modular"],
+    "homepage": "http://colibri.sphilip.com/",
+    "type": "yii2-extension",
+    "license": "Gnu/GPL v3",
+    "support": {
+        "source": "https://github.com/ilhooq/colibri"
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": ">=2.0.7",
+        "bower-asset/adminlte" : ">=2.3.3",
+        "bower-asset/fontawesome" : ">=4.6.0"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "colibri\\backend\\": ""
+        }
+    },
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    }
+}
