@@ -1,27 +1,26 @@
 <?php
 
-use yii\web\View;
-// use modules\admin\widgets\SideNav;
+use colibri\admin\widgets\SideNav;
 
 /* @var $this View */
+
+// Yii::$app->
 
 $items = isset($this->params['sideMenu'])? $this->params['sideMenu'] : [];
 
 array_unshift($items, ['label' => Yii::t('admin', 'Navigation'), 'options' => ['class' => 'header']]);
 
-$items[] = ['label' => 'System', 'icon' => 'gear', 'url' => ['/admin'], 'items' => [
-    ['label' => Yii::t('user', 'Manage users'), 'url' => ['/user/admin/index'], 'icon' => 'group', 'items' => [
-    		['label' => Yii::t('user', 'Users'), 'url' => ['/user/admin/index'], 'icon' => 'group'],
-    		['label' => Yii::t('user', 'Roles'), 'url' => ['/rbac/role/index'], 'icon' => 'group'],
-    		['label' => Yii::t('user', 'Permissions'), 'url' => ['/rbac/permission/index'], 'icon' => 'group'],
-    ]],
-    ['label' => Yii::t('user', 'Configuration'), 'url' => ['/admin/configuration/index'], 'icon' => 'wrench'],
+$items[] = ['label' => 'System', 'icon' => 'gear', 'url' => ['#'], 'items' => [
+    ['label' => Yii::t('admin', 'Users'), 'url' => ['/user/admin/index'], 'icon' => 'group'],
+    ['label' => Yii::t('admin', 'Roles'), 'url' => ['/rbac/role/index'], 'icon' => 'group'],
+    ['label' => Yii::t('admin', 'Permissions'), 'url' => ['/rbac/permission/index'], 'icon' => 'group'],
+    ['label' => Yii::t('admin', 'Configuration'), 'url' => ['/admin/settings/default/index'], 'icon' => 'wrench'],
 ]];
 
 ?>
 <aside class="main-sidebar">
     <section class="sidebar">
-        
+
         <form class="sidebar-form" method="get" action="#">
             <div class="input-group">
               <input type="text" placeholder="Search..." class="form-control" name="q">
@@ -30,7 +29,7 @@ $items[] = ['label' => 'System', 'icon' => 'gear', 'url' => ['/admin'], 'items' 
               </span>
             </div>
           </form>
-        <?php /*
+        <?php
         echo SideNav::widget([
             'options' => [
                 'class' => 'sidebar-menu',
@@ -38,6 +37,6 @@ $items[] = ['label' => 'System', 'icon' => 'gear', 'url' => ['/admin'], 'items' 
             'items' => $items,
             'activateParents' => true
         ]);
-        */ ?>
+        ?>
     </section>
 </aside>

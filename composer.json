@@ -1,28 +1,22 @@
 {
-    "name": "ilhooq/colibri-backend",
-    "description": "The base for a modular application",
+    "name": "colibri-platform/admin",
+    "description": "Admin module for the Colibri platform",
     "keywords": ["yii2", "admin", "modular"],
-    "homepage": "http://colibri.sphilip.com/",
-    "type": "yii2-extension",
+    "homepage": "https://github.com/ColibriPlatform/admin",
+    "type": "colibri-extension",
     "license": "Gnu/GPL v3",
     "support": {
-        "source": "https://github.com/ilhooq/colibri"
+        "source": "https://github.com/ColibriPlatform/admin"
     },
     "require": {
         "php": ">=5.4.0",
-        "yiisoft/yii2": ">=2.0.7",
+        "colibri-platform/base": "@dev",
         "deesoft/yii2-adminlte": "~1.0"
     },
 
     "autoload": {
         "psr-4": {
-            "colibri\\backend\\": ""
-        }
-    },
-    "extra": {
-        "asset-installer-paths": {
-            "npm-asset-library": "vendor/npm",
-            "bower-asset-library": "vendor/bower"
+            "colibri\\admin\\": ""
         }
     }
 }

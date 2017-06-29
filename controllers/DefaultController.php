@@ -1,7 +1,6 @@
 <?php
-namespace colibri\backend\controllers;
+namespace colibri\admin\controllers;
 
-use Yii;
 use yii\web\Controller;
 
 class DefaultController extends Controller

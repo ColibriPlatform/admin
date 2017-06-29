@@ -1,14 +1,11 @@
 <?php
-use yii\web\View;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
-// use modules\admin\assets\AdminAsset;
-/*
-$user = Yii::$app->getUser();
-$identity = $user->getIdentity();
-$profil = $identity->getProfile()->one();
-*/
-/* @var $this View */
+
+/* @var $this yii\web\View */
+/* @var $identity dektrium\user\models\User */
+
+$identity = Yii::$app->getUser()->getIdentity();
 ?>
 <header class="main-header">
     <a href="<?= Yii::$app->homeUrl; ?>" class="logo">
@@ -27,19 +24,18 @@ $profil = $identity->getProfile()->one();
               <!-- User Account -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  
-                  <?php /* if ($this->params['adminAssetBundle'] instanceof \yii\web\AssetBundle): ?>
-                  <img src="<?= $this->params['adminAssetBundle']->baseUrl ?>/img/anonymous.png" class="user-image" alt="User Image" />
-                  <?php endif */?>
-                  <span class="hidden-xs"><?php // = empty($profil->name)?  $identity->username : $profil->name ?></span>
+
+                  <img src="<?= $identity->profile->getAvatarUrl(160) ?>" class="user-image" alt="User Image" />
+
+                  <span class="hidden-xs"><?= empty($identity->profile->name)?  $identity->username : $identity->profile->name?></span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    <?php /*if ($this->params['adminAssetBundle'] instanceof \yii\web\AssetBundle): ?>
-                    <img src="<?= $this->params['adminAssetBundle']->baseUrl ?>/img/anonymous.png" class="img-circle" alt="User Image">
-                    <?php endif */?>
-                    <p><?php // = empty($profil->name)?  $identity->username : $profil->name ?></p>
+
+                    <img src="<?= $identity->profile->getAvatarUrl(160) ?>" class="img-circle" alt="User Image">
+
+                    <p><?= empty($identity->profile->name)?  $identity->username : $identity->profile->name?></p>
                   </li>
                   <!-- Menu Footer-->
                   <li class="user-footer">

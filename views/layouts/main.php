@@ -2,9 +2,7 @@
 
 use yii\helpers\Html;
 use dee\adminlte\AdminlteAsset;
-// use colibri\backend\assets\AdminlteAsset;
 use yii\widgets\Breadcrumbs;
-// use modules\admin\assets\AdminAsset;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
