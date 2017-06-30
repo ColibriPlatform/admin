@@ -1,11 +1,21 @@
 <?php
+/**
+ * This file is part of Colibri platform
+ *
+ * @link https://github.com/ColibriPlatform
+ * @copyright   (C) 2017 PHILIP Sylvain. All rights reserved.
+ * @license     MIT; see LICENSE.txt
+ */
 
 namespace colibri\admin;
+
 use Yii;
 
-// use yii\web\GroupUrlRule;
-
-
+/**
+ * This is the admin module class for the Colibri platform.
+ *
+ * @author Sylvain PHILIP <contact@sphilip.com>
+ */
 class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
 {
 
@@ -26,7 +36,6 @@ class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
     {
 
         if (!isset($config['modules']['settings'])) {
-
             $config['modules']['settings'] = [
                 'class' => 'pheme\settings\Module',
                 'sourceLanguage' => 'en'
@@ -35,7 +44,6 @@ class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
 
         parent::__construct($id, $parent = null, $config);
     }
-
 
     /**
      * @inheritdoc
@@ -61,7 +69,7 @@ class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
 
     /**
      * Bootstrap method to be called during application bootstrap stage.
-     * 
+     *
      * @param \yii\web\Application $app the application currently running
      */
     public function bootstrap($app)
@@ -82,7 +90,6 @@ class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
         $app->getModule('rbac')->layout = '@vendor/colibri-platform/admin/views/layouts/main.php';
 
         if (ltrim($app->getRequest()->url, '/') == $this->id . '/login') {
-
             // Set the admin layout and override view to the login form
             $app->getModule('user')->controllerMap['security'] = [
                 'class'  => 'dektrium\user\controllers\SecurityController',
@@ -92,7 +99,6 @@ class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
             $view = $app->getView();
 
             if (empty($view->theme)) {
-
                 $view->theme = Yii::createObject('yii\base\Theme');
             }
 
@@ -108,7 +114,6 @@ class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
         parent::init();
 
         if (!isset(Yii::$app->i18n->translations['admin'])) {
-
             Yii::$app->i18n->translations['admin'] = [
                 'class' => 'yii\i18n\PhpMessageSource',
                 'basePath' => __DIR__ . '/messages'
@@ -116,10 +121,5 @@ class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
         }
 
         $this->layout = 'main';
-
     }
-
-
-
-
 }

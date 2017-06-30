@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * This file is part of Colibri platform
+ *
+ * @link https://github.com/ColibriPlatform
+ * @copyright   (C) 2017 PHILIP Sylvain. All rights reserved.
+ * @license     MIT; see LICENSE.txt
+ */
 namespace colibri\admin\widgets;
 
 use yii\base\InvalidConfigException;
@@ -8,10 +14,14 @@ use yii\helpers\Url;
 use rmrevin\yii\fontawesome\FA;
 use dee\adminlte\Html;
 
+/**
+ * Extends SideNav
+ *
+ * @see \dee\adminlte\SideNav
+ * @author Sylvain PHILIP <contact@sphilip.com>
+ */
 class SideNav extends \dee\adminlte\SideNav
 {
-
-
     /**
      * Renders a widget's item.
      * @param string|array $item the item to render.
@@ -73,5 +83,4 @@ class SideNav extends \dee\adminlte\SideNav
 
         return Html::tag('li', $item . $items, $options);
     }
-
 }

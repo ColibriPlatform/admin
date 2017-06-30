@@ -1,4 +1,12 @@
 <?php
+/**
+ * This file is part of Colibri platform
+ *
+ * @link https://github.com/ColibriPlatform
+ * @copyright   (C) 2017 PHILIP Sylvain. All rights reserved.
+ * @license     MIT; see LICENSE.txt
+ */
+
 use dektrium\user\widgets\Connect;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
@@ -44,7 +52,7 @@ $authClients = Yii::$app->get('authClientCollection')->getClients();
         ) ?>
 		<span class="glyphicon glyphicon-user form-control-feedback"></span>
 	</div>
-	
+
 	<div class="form-group has-feedback">
 		<?= $form->field(
             $model,
