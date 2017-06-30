@@ -61,6 +61,7 @@ class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
 
     /**
      * Bootstrap method to be called during application bootstrap stage.
+     * 
      * @param \yii\web\Application $app the application currently running
      */
     public function bootstrap($app)
@@ -68,7 +69,7 @@ class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
 
         $app->urlManager->addRules([
             $this->id . '/login' => '/user/security/login',
-            $this->id . '/logout' => '/user/security/logout',
+            // $this->id . '/logout' => '/user/security/logout',
             $this->id . '/users/<action:\w+>' => '/user/admin/<action>',
             $this->id . '/rbac/<controller:\w+>/<action:\w+>' => '/rbac/<controller>/<action>',
         ]);
@@ -79,6 +80,27 @@ class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
         ];
 
         $app->getModule('rbac')->layout = '@vendor/colibri-platform/admin/views/layouts/main.php';
+
+        if (ltrim($app->getRequest()->url, '/') == $this->id . '/login') {
+
+            // Set the admin layout and override view to the login form
+            $app->getModule('user')->controllerMap['security'] = [
+                'class'  => 'dektrium\user\controllers\SecurityController',
+                'layout' => '@vendor/colibri-platform/admin/views/layouts/login.php'
+            ];
+
+            $view = $app->getView();
+
+            if (empty($view->theme)) {
+
+                $view->theme = Yii::createObject('yii\base\Theme');
+            }
+
+            $view->theme->pathMap['@dektrium/user/views'] = __DIR__ . '/views/user';
+
+            // Set the return url to the admin home
+            $app->getUser()->setReturnUrl('/' . $this->id);
+        }
     }
 
     public function init()
@@ -95,18 +117,6 @@ class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
 
         $this->layout = 'main';
 
-        // $user = Yii::$app->getUser();
-        // $user->loginUrl =  [$this->id . '/user/security/login'];
-        // $user->returnUrl =  [$this->id];
-
-
-/*
-        $view = Yii::$app->getView();
-        if (empty($view->theme)) {
-            $view->theme = Yii::createObject('yii\base\Theme');
-        }
-        $view->theme->pathMap['@dektrium/user/views'] = __DIR__ . '/views/user';
-*/
     }
 
 
