@@ -18,12 +18,12 @@ $evt = new Event();
 $evt->data = &$items;
 
 /*
- * Trigger the admin side nav event that allow third party modules to update the item list.
+ * Trigger the admin side nav event that allow third party code to update the item list.
  *
  * Exemple of use :
  *
  * ```php
- * $app->view->on('colibri.admin.initSideNav', function($event) {
+ * Yii::$app->view->on('colibri.admin.initSideNav', function($event) {
  *    $items = &$event->data;
  *    $items[] = ['label' => 'Site', 'icon' => 'gear', 'url' => ['/admin/site']];
  * });
