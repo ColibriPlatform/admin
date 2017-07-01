@@ -8,7 +8,7 @@
  */
 
 use yii\helpers\Html;
-use dee\adminlte\AdminlteAsset;
+use colibri\admin\assets\AdminlteAsset;
 
 /**
  * @var \yii\web\View $this

@@ -8,7 +8,7 @@
  */
 
 use yii\helpers\Html;
-use dee\adminlte\AdminlteAsset;
+use colibri\admin\assets\AdminlteAsset;
 use yii\widgets\Breadcrumbs;
 
 /* @var $this \yii\web\View */
