@@ -93,7 +93,9 @@ $this->registerJs($js);
 
   <div class="tab-content">
 
-    <div id="control-sidebar-home-tab" class="tab-pane active"></div>
+    <div id="control-sidebar-home-tab" class="tab-pane active">
+    <?php $this->trigger('colibri.admin.control-sidebar-home') ?>
+    </div>
 
     <div id="control-sidebar-options-tab" class="tab-pane">
       <h4 class="control-sidebar-heading"><?= Yii::t('admin', 'Skin') ?></h4>

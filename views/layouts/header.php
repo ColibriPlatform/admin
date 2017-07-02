@@ -24,10 +24,11 @@ $identity = Yii::$app->getUser()->getIdentity();
         <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only"><?= Yii::t('admin', 'Toggle navigation') ?></span>
         </a>
+        <?php $this->trigger('colibri.admin.top-navbar') ?>
 
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
-
+              <?php $this->trigger('colibri.admin.navbar-custom-menu-before') ?>
               <!-- User Account -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -55,6 +56,7 @@ $identity = Yii::$app->getUser()->getIdentity();
                   </li>
                 </ul>
               </li>
+              <?php $this->trigger('colibri.admin.navbar-custom-menu-after') ?>
               <!-- Control Sidebar Toggle Button -->
               <li>
                 <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>

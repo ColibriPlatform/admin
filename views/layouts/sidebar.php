@@ -44,6 +44,7 @@ $items[] = ['label' => Yii::t('admin', 'System'), 'icon' => 'gear', 'url' => ['#
 ?>
 <aside class="main-sidebar">
     <section class="sidebar">
+        <?php $this->trigger('colibri.admin.sidebar-top') ?>
 
         <form class="sidebar-form" method="get" action="#">
             <div class="input-group">
@@ -62,5 +63,7 @@ $items[] = ['label' => Yii::t('admin', 'System'), 'icon' => 'gear', 'url' => ['#
             'activateParents' => true
         ]);
         ?>
+
+        <?php $this->trigger('colibri.admin.sidebar-bottom') ?>
     </section>
 </aside>
