@@ -55,13 +55,7 @@ $breadcrumbs = isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'
                     <?= $content ?>
                 </section>
             </div>
-
-            <footer class="main-footer">
-                <div class="pull-right hidden-xs">
-                    Version 1.0
-                </div>
-                <strong><a href="https://github.com/ColibriPlatform">Colibri</a></strong>
-            </footer>
+            <?= $this->render('footer'); ?>
             <?= $this->render('control-sidebar'); ?>
         </div>
         <?php $this->endBody() ?>
