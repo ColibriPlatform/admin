@@ -40,6 +40,7 @@ $skinColors = [
 ];
 
 $skinsJs = json_encode(array_keys($skinNames));
+$storageAlert = addslashes(Yii::t('admin', 'Your browser cannot save into Storage.'));
 
 $js = <<<SCRIPT
 function checkStorage()
@@ -48,7 +49,7 @@ function checkStorage()
     return true;
   }
 
-  window.alert('Please use a modern browser to properly view this template!');
+  window.alert('$storageAlert');
   return false;
 }
 
@@ -95,7 +96,7 @@ $this->registerJs($js);
     <div id="control-sidebar-home-tab" class="tab-pane active"></div>
 
     <div id="control-sidebar-options-tab" class="tab-pane">
-      <h4 class="control-sidebar-heading">Skins</h4>
+      <h4 class="control-sidebar-heading"><?= Yii::t('admin', 'Skin') ?></h4>
       <ul class="list-unstyled clearfix">
       <?php foreach ($skinColors as $key => $colors): ?>
         <li style="float: left; width: 33.33333%; padding: 5px;">

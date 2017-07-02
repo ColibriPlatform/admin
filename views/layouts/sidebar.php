@@ -32,13 +32,13 @@ $evt->data = &$items;
 
 $this->trigger('colibri.admin.initSideNav', $evt);
 
-array_unshift($items, ['label' => Yii::t('admin', 'Navigation'), 'options' => ['class' => 'header']]);
+array_unshift($items, ['label' => strtoupper(Yii::t('admin', 'Main navigation')), 'options' => ['class' => 'header']]);
 
-$items[] = ['label' => 'System', 'icon' => 'gear', 'url' => ['#'], 'items' => [
+$items[] = ['label' => Yii::t('admin', 'System'), 'icon' => 'gear', 'url' => ['#'], 'items' => [
     ['label' => Yii::t('admin', 'Users'), 'url' => ['/user/admin/index'], 'icon' => 'group'],
     ['label' => Yii::t('admin', 'Roles'), 'url' => ['/rbac/role/index'], 'icon' => 'group'],
     ['label' => Yii::t('admin', 'Permissions'), 'url' => ['/rbac/permission/index'], 'icon' => 'group'],
-    ['label' => Yii::t('admin', 'Configuration'), 'url' => ['/admin/settings/default/index'], 'icon' => 'wrench'],
+    ['label' => Yii::t('admin', 'Global configuration'), 'url' => ['/admin/settings/default/index'], 'icon' => 'wrench'],
 ]];
 
 ?>
