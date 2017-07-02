@@ -36,12 +36,17 @@ $breadcrumbs = isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'
             <?= $this->render('sidebar'); ?>
             <div class="content-wrapper">
                 <section class="content-header">
-                    <h1><?= $this->title; ?></h1>
+                    <h1>
+                    <?= $this->title ?>
+                    <?php if (isset($this->params['subtitle'])): ?>
+                      <small><?= $this->params['subtitle'] ?></small>
+                    <?php endif ?>
+                    </h1>
                     <?=
                     Breadcrumbs::widget([
                         'tag' => 'ol',
                         'encodeLabels' => false,
-                        'homeLink' => ['label' => '<i class="fa fa-dashboard"></i> Home/Dashboard', 'url' => ['/site/index']],
+                        'homeLink' => ['label' => '<i class="fa fa-dashboard"></i> ' . Yii::t('admin', 'Home/Dashboard'), 'url' => ['/admin']],
                         'links' => $breadcrumbs,
                     ])
                     ?>

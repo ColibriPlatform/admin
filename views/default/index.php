@@ -6,6 +6,7 @@
  * @copyright   (C) 2017 PHILIP Sylvain. All rights reserved.
  * @license     MIT; see LICENSE.txt
  */
-?>
 
-<h1>Home backend</h1>
+$this->title = Yii::t('admin', 'Dashboard');
+$this->params['subtitle'] = Yii::t('admin', 'Control panel');
+?>
