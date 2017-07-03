@@ -4,7 +4,7 @@
     "keywords": ["yii2", "admin", "modular"],
     "homepage": "https://github.com/ColibriPlatform/admin",
     "type": "colibri-extension",
-    "license": "Gnu/GPL v3",
+    "license": "MIT",
     "support": {
         "source": "https://github.com/ColibriPlatform/admin"
     },
