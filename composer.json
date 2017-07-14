@@ -12,6 +12,7 @@
         "php": ">=5.4.0",
         "yiisoft/yii2-jui": "~2.0",
         "colibri-platform/base": "@dev",
+        "insolita/yii2-adminlte-widgets": "~2.0",
         "bower-asset/adminlte": "~2.0",
         "bower-asset/fontawesome": "~4.0"
     },
