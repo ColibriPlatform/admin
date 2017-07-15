@@ -58,9 +58,12 @@ class Navigation extends Tree
         return $rules;
     }
 
+
     public function attributeLabels()
     {
-        return [
+        $parentLabels = parent::attributeLabels();
+
+        $labels = [
             'slug' => Yii::t('admin', 'Slug'),
             'route' => Yii::t('admin', 'Route'),
             'route_params' => Yii::t('admin', 'Route parameters'),
@@ -70,6 +73,8 @@ class Navigation extends Tree
             'meta_keywords' => Yii::t('admin', 'Meta keywords'),
             'link_options' => Yii::t('admin', 'Link options'),
         ];
+
+        return $parentLabels + $labels;
     }
 
     public function attributeHints()
