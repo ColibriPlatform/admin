@@ -28,10 +28,6 @@ use Yii;
  */
 class Navigation extends Tree
 {
-    const MAIN_MENU_ID = 1;
-
-    const ADMIN_MENU_ID = 2;
-
     /**
      * @inheritdoc
      */
@@ -88,20 +84,20 @@ class Navigation extends Tree
     }
 
     /**
-     * Build tree navigation items array
+     * Build a tree items array
      * This nice iterating tree traversal algorithm to build come from
      * yii2-pages-module
      *
-     * @param int $rootNodeId
+     * @param string $slug The node slug
 
      * @author [Sylvain Philip, diemeisterei GmbH, Stuttgart]
      * @see https://github.com/dmstr/yii2-pages-module
      *
      * @return array|array
      */
-    public static function getNavItems($rootNodeId)
+    public static function getNavItems($slug)
     {
-        $rootNode = self::findOne(['id' => $rootNodeId]);
+        $rootNode = self::findOne(['slug' => $slug]);
 
         if (empty($rootNode)) {
             return [];
@@ -126,7 +122,6 @@ class Navigation extends Tree
             /* @var Tree $child */
             $item = [
                 'label' => $child->name,
-                // 'url' => $child->createRoute(),
                 'url' => [$child->route],
                 'icon' => $child->icon,
                 'linkOptions' => [

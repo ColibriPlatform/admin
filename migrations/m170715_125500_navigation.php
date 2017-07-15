@@ -64,7 +64,7 @@ class m170715_125500_navigation extends Migration
         $this->createIndex('tree_NK6', self::TABLE_NAME, 'slug', true);
 
         $this->insert(self::TABLE_NAME, [
-            'id' => Navigation::MAIN_MENU_ID,
+            'id' => 1,
             'root' => 1,
             'lft' => 1,
             'rgt' => 2,
@@ -75,7 +75,7 @@ class m170715_125500_navigation extends Migration
         ]);
 
         $this->insert(self::TABLE_NAME, [
-            'id' => Navigation::ADMIN_MENU_ID,
+            'id' => 2,
             'root' => 2,
             'lft' => 1,
             'rgt' => 2,

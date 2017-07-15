@@ -144,11 +144,9 @@ class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
     /**
      * Module migrateUp method (called during application installation)
      *
-     * @param array $params install parameters
-     *
      * @return string Migration messages
      */
-    public static function migrateUp(&$params)
+    public static function migrateUp()
     {
         $migration = new Migration(Yii::getAlias('@vendor/colibri-platform/admin/migrations'));
         $migration->up();
