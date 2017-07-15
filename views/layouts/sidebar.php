@@ -8,11 +8,12 @@
  */
 
 use colibri\admin\widgets\SideNav;
+use colibri\admin\models\Navigation;
 use yii\base\Event;
 
 /* @var $this \yii\web\View */
 
-$items = [];
+$items = Navigation::getNavItems('admin-mainmenu');
 
 $evt = new Event();
 $evt->data = &$items;
@@ -38,7 +39,10 @@ $items[] = ['label' => Yii::t('admin', 'System'), 'icon' => 'gear', 'url' => ['#
     ['label' => Yii::t('admin', 'Users'), 'url' => ['/user/admin/index'], 'icon' => 'group'],
     ['label' => Yii::t('admin', 'Roles'), 'url' => ['/rbac/role/index'], 'icon' => 'group'],
     ['label' => Yii::t('admin', 'Permissions'), 'url' => ['/rbac/permission/index'], 'icon' => 'group'],
-    ['label' => Yii::t('admin', 'Global configuration'), 'url' => ['/admin/settings/default/index'], 'icon' => 'wrench'],
+    ['label' => Yii::t('admin', 'Navigation'), 'url' => ['navigation/index'], 'icon' => 'tree'],
+    ['label' => Yii::t('admin', 'Widgets'), 'url' => ['widgets/index'], 'icon' => 'cube'],
+    ['label' => Yii::t('admin', 'Modules'), 'url' => ['modules/index'], 'icon' => 'cube'],
+    ['label' => Yii::t('admin', 'Global configuration'), 'url' => ['settings/default/index'], 'icon' => 'wrench'],
 ]];
 
 ?>
