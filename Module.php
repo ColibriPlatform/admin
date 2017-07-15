@@ -11,6 +11,8 @@ namespace colibri\admin;
 
 use Yii;
 
+use colibri\base\Migration;
+
 /**
  * This is the admin module class for the Colibri platform.
  *
@@ -107,6 +109,22 @@ class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
             // Set the return url to the admin home
             $app->getUser()->setReturnUrl('/' . $this->id);
         }
+
+        if ($app->getModule('treemanager', false) === null) {
+            $app->setModule('treemanager', [
+                'class' => '\kartik\tree\Module',
+
+                // The list of asset bundles that would be unset when rendering the node detail form via ajax
+                'unsetAjaxBundles' => [
+                    'yii\web\YiiAsset',
+                    'yii\web\JqueryAsset',
+                    'yii\widgets\ActiveFormAsset',
+                    'kartik\form\ActiveFormAsset',
+                    'yii\validators\ValidationAsset',
+                    'yii\bootstrap\BootstrapAsset',
+                ]
+            ]);
+        }
     }
 
     public function init()
@@ -121,5 +139,20 @@ class Module extends \yii\base\Module implements \yii\base\BootstrapInterface
         }
 
         $this->layout = 'main';
+    }
+
+    /**
+     * Module migrateUp method (called during application installation)
+     *
+     * @param array $params install parameters
+     *
+     * @return string Migration messages
+     */
+    public static function migrateUp(&$params)
+    {
+        $migration = new Migration(Yii::getAlias('@vendor/colibri-platform/admin/migrations'));
+        $migration->up();
+
+        return implode("\n", $migration->messages);
     }
 }
