@@ -9,6 +9,7 @@
 
 use colibri\admin\widgets\SideNav;
 use colibri\admin\models\Navigation;
+use colibri\admin\Module;
 use yii\base\Event;
 
 /* @var $this \yii\web\View */
@@ -56,7 +57,8 @@ $items[] = ['label' => Yii::t('admin', 'System'), 'icon' => 'gear', 'url' => ['#
                 'class' => 'sidebar-menu',
              ],
             'items' => $items,
-            'activateParents' => true
+            'activateParents' => true,
+            'baseModuleId' => Module::getInstance()->id
         ]);
         ?>
 

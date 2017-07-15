@@ -123,6 +123,11 @@ class SideNav extends Widget
     public $treeviewCaret;
 
     /**
+     * @var string The base module Id for relative routes (without / at the start) defined in items urls
+     */
+    public $baseModuleId;
+
+    /**
      * Initializes the widget.
      */
     public function init()
@@ -243,6 +248,15 @@ class SideNav extends Widget
 
         if ($this->activateItems && $active) {
             Html::addCssClass($options, 'active');
+        }
+
+        if (is_array($url)) {
+
+            $route = $url[0];
+
+            if ($route[0] !== '/' && $this->baseModuleId) {
+                $url[0] =  '/' . $this->baseModuleId. '/' . $route;
+            }
         }
 
         $item = empty($url) ? $label : Html::a($label, $url, $linkOptions);
