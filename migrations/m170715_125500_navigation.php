@@ -8,7 +8,6 @@
  */
 
 use yii\db\Migration;
-use colibri\admin\models\Navigation;
 
 class m170715_125500_navigation extends Migration
 {
