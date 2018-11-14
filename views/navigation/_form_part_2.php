@@ -7,14 +7,10 @@
  * @license     MIT; see LICENSE.txt
  */
 
-use kartik\form\ActiveForm;
-use colibri\admin\models\Navigation;
-use yii\web\View;
-
 /**
- * @var View         $this
- * @var Navigation   $node
- * @var ActiveForm   $form
+ * @var yii\web\View                     $this
+ * @var colibri\admin\models\Navigation  $node
+ * @var kartik\form\ActiveForm           $form
  */
 ?>
 
