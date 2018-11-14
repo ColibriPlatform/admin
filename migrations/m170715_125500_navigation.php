@@ -52,7 +52,8 @@ class m170715_125500_navigation extends Migration
             'movable_l' => $this->boolean()->notNull()->defaultValue(true),
             'movable_r' => $this->boolean()->notNull()->defaultValue(true),
             'removable' => $this->boolean()->notNull()->defaultValue(true),
-            'removable_all' => $this->boolean()->notNull()->defaultValue(false)
+            'removable_all' => $this->boolean()->notNull()->defaultValue(false),
+            'child_allowed' => $this->boolean()->notNull()->defaultValue(true)
         ], $tableOptions);
 
         $this->createIndex('tree_NK1', self::TABLE_NAME, 'root');
