@@ -124,6 +124,7 @@ class Navigation extends Tree
         $stack = [];
 
         foreach ($childs as $child) {
+
             /* @var Tree $child */
             $item = [
                 'label' => $child->name,
@@ -134,6 +135,15 @@ class Navigation extends Tree
                     'data-lvl' => $child->lvl,
                 ]
             ];
+
+            if (!empty($child->route_params)) {
+                $params = explode(',', $child->route_params);
+
+                foreach ($params as $param) {
+                    $exp = explode('=', $param);
+                    $item['url'][$exp[0]] = $exp[1];
+                }
+            }
 
             if (!empty($child->access_roles)) {
                 $roles = explode(',', $child->access_roles);
