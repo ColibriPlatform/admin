@@ -17,7 +17,7 @@ use yii\base\Event;
 $items = Navigation::getNavItems('admin-mainmenu');
 
 $evt = new Event();
-$evt->data = &$items;
+$evt->data = $items;
 
 /*
  * Trigger the admin side nav event that allow third party code to update the item list.
@@ -33,6 +33,10 @@ $evt->data = &$items;
  */
 
 $this->trigger('colibri.admin.initSideNav', $evt);
+
+if (is_array($evt->data) && count($evt->data) > 0) {
+    $items = $evt->data;
+}
 
 array_unshift($items, ['label' => strtoupper(Yii::t('admin', 'Main navigation')), 'options' => ['class' => 'header']]);
 
