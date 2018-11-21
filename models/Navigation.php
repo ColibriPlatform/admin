@@ -146,27 +146,29 @@ class Navigation extends Tree
             }
 
             if (!empty($child->access_roles)) {
+
                 $roles = explode(',', $child->access_roles);
+                $visible = false;
 
                 foreach ($roles as $role) {
-                    $can = 0;
-
                     if (strpos($role, '!') === 0) {
                         $role = substr($role, 1);
 
-                        if (Yii::$app->user->can($role)) {
-                            $item['visible'] = false;
+                        if (!Yii::$app->user->can($role)) {
+                            $visible = true;
                             break;
                         }
 
                         continue;
                     }
 
-                    if (!Yii::$app->user->can($role)) {
-                        $item['visible'] = false;
+                    if (Yii::$app->user->can($role)) {
+                        $visible = true;
                         break;
                     }
                 }
+
+                $item['visible'] = $visible;
             }
 
             if (!empty($child->link_options)) {
